@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Profile } from './profile';
+import { Profile } from './models/profile';
 import { UserService } from './services/user/user.service';
 
 @Component({
@@ -14,17 +14,17 @@ export class AppComponent implements OnInit{
   constructor(private profileService: UserService) { }
 
   ngOnInit(): void {
-      this.getProfiles();
+      // this.getProfiles();
   }
 
-  public getProfiles(): void{
-    this.profileService.getAllUserProfile().subscribe(
-      (response: Profile[]) => {
-        this.profiles = response;
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    );
-  }
+  // public getProfiles(): void{
+  //   this.profileService.getAllUserProfile().subscribe(
+  //     (response: Profile[]) => {
+  //       this.profiles = response;
+  //     },
+  //     (error: HttpErrorResponse) => {
+  //       alert(error.message);
+  //     }
+  //   );        
+  // }
 }

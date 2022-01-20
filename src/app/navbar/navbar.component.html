@@ -1,5 +1,4 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <!-- <a class="navbar-brand" href="#">{{ title }}</a> -->
     <a class="navbar-brand" href="#">
         <img src="assets/logo.png" alt="" width="50" height="50">
       </a>
@@ -40,11 +39,11 @@
           </button>
         </div>
         <div class="modal-body">
-          <input type="" id="" name="">
+          <input [(ngModel)]="username" type="" id="name" name="name">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Submit</button>
+          <button (click)="addUser()" type="button" class="btn btn-primary">Submit</button>
         </div>
       </div>
     </div>

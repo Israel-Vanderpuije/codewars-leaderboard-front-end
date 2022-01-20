@@ -17,6 +17,7 @@ body {
 
 .container {
   width: 100%;
+  padding-top: 140px;
   /* border: 1px solid rgba(0,0,0,0.3); */
 }
 .my-table{

@@ -1,6 +1,7 @@
 export interface  Profile{
-    id: string;
+    id: number;
     name: string;
-    clan: string;
+    username: string;
     honour: string;
+    overall_rank: string;
 }

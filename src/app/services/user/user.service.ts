@@ -1,29 +1,30 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Profile } from 'src/app/profile';
+import { Profile } from 'src/app/models/profile';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private apiServerUrl = '';
+  private apiServerUrl = environment.apiBaseUrl;
 
   constructor(private http: HttpClient) { }
 
   getAllUserProfile(): Observable<Profile[]>{
     //use http client
-    return this.http.get<Profile[]>(`${this.apiServerUrl}/get/all`);
+    return this.http.get<Profile[]>(`${this.apiServerUrl}`);
   }
 
-  getAllUserProfileByLanguage(): Observable<Profile[]>{
+  getAllUserProfileByLanguage(): Observable<any>{
     //use http client
-    return this.http.get<Profile[]>(`${this.apiServerUrl}/get/all`);
+    return this.http.get<any>(`https://jsonplaceholder.typicode.com/users`);
   }
 
-  addProfile(profile: Profile): Observable<Profile>{
+  addProfile(username: any): Observable<Profile>{
     //use http client
-    return this.http.post<Profile>(`${this.apiServerUrl}/profile/add`, profile);
+    return this.http.post<any>(`${this.apiServerUrl}/profile/add`, username);
   }
 
 }
