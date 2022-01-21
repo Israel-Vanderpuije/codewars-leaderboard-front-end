@@ -8,7 +8,7 @@ import { UserService } from '../services/user/user.service';
 })
 export class NavbarComponent implements OnInit {
     username: string = "";
-    language: string = "";
+    lang: string = "";
 
   constructor(private profileService: UserService) { }
 
@@ -26,13 +26,12 @@ export class NavbarComponent implements OnInit {
         console.log(success)
       }
     )
+    window.location.reload();
   }
 
   sortByLanguage(){
-    const payload = {
-      "id" : this.language
-    }
-    this.profileService.getAllUserProfileByLanguage(payload).subscribe(
+    const language = this.lang
+    this.profileService.getAllUserProfileByLanguage(language).subscribe(
       error => {
         console.log(error)
       },
