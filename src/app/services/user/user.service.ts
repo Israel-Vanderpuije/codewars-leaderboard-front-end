@@ -17,14 +17,14 @@ export class UserService {
     return this.http.get<Profile[]>(`${this.apiServerUrl}`);
   }
 
-  getAllUserProfileByLanguage(): Observable<any>{
+  getAllUserProfileByLanguage(language: any): Observable<any>{
     //use http client
-    return this.http.get<any>(`https://jsonplaceholder.typicode.com/users`);
+    return this.http.post<any>(`${this.apiServerUrl}/language/`, language);
   }
 
-  addProfile(username: any): Observable<Profile>{
+  addProfile(payload: any): Observable<Profile>{
     //use http client
-    return this.http.post<any>(`${this.apiServerUrl}/profile/add`, username);
+    return this.http.post<any>(`${this.apiServerUrl}/add-user`, payload);
   }
 
 }

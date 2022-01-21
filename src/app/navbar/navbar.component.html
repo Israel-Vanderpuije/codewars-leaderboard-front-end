@@ -39,7 +39,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <input [(ngModel)]="username" type="" id="name" name="name">
+          <input [(ngModel)]="username" type="text" id="name" name="name">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -60,11 +60,11 @@
           </button>
         </div>
         <div class="modal-body">
-          <input type="text" id="" name="">
+          <input [(ngModel)]="language" type="text" id="language" name="language">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Submit</button>
+          <button (click)="sortByLanguage()" type="button" class="btn btn-primary">Submit</button>
         </div>
       </div>
     </div>

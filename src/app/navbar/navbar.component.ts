@@ -7,19 +7,32 @@ import { UserService } from '../services/user/user.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-    title = 'Codewars Leaderboard';
     username: string = "";
+    language: string = "";
 
   constructor(private profileService: UserService) { }
 
   ngOnInit(): void {
   }
 
+ 
   addUser(){
-    const payload = {
-      "id" : this.username
-    }
+    const payload = this.username;
     this.profileService.addProfile(payload).subscribe(
+      error => {
+        console.log(error)
+      },
+      success => {
+        console.log(success)
+      }
+    )
+  }
+
+  sortByLanguage(){
+    const payload = {
+      "id" : this.language
+    }
+    this.profileService.getAllUserProfileByLanguage(payload).subscribe(
       error => {
         console.log(error)
       },

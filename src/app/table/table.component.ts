@@ -30,17 +30,17 @@ export class TableComponent implements OnInit {
   constructor(private profileService: UserService) { }
 
   ngOnInit(): void {
-    this.getTableData()
+    // this.getTableData()
     this.getProfiles();
   }
 
-  getTableData() {
-    //Use service to get data
-    //ELEMENT_DATA = data
-    this.profileService.getAllUserProfileByLanguage().subscribe((data) => {
-          console.log(data);
-    });
-  }
+  // getTableData() {
+  //   //Use service to get data
+  //   //ELEMENT_DATA = data
+  //   this.profileService.getAllUserProfileByLanguage().subscribe((data) => {
+  //         console.log(data);
+  //   });
+  // }
 
   getProfiles(): void{
       this.profileService.getAllUserProfile().subscribe(
@@ -53,9 +53,5 @@ export class TableComponent implements OnInit {
         }
       );        
     }
-
-  addProfile(){
-
-  }
 
 }
