@@ -31,7 +31,7 @@ export class NavbarComponent implements OnInit {
 
   sortByLanguage(){
     const language = this.lang
-    this.profileService.getAllUserProfileByLanguage(language).subscribe(
+    this.profileService.getAllUserProfileByLanguage(language.toLowerCase()).subscribe(
       error => {
         console.log(error)
       },
