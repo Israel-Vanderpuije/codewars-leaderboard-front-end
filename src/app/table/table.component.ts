@@ -1,5 +1,4 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Profile } from '../models/profile';
 import { UserService } from '../services/user/user.service';
@@ -20,14 +19,11 @@ const ELEMENT_DATA: PeriodicElement[] = [];
 })
 
 export class TableComponent implements OnInit {
-  public profiles: Profile[] = [];
-  
-  
-  
+  constructor(private profileService: UserService) { }
+
+  profiles: Profile[] = [];  
   displayedColumns: string[] = ['position', 'name', 'username', 'honor', 'rank'];
   dataSource = ELEMENT_DATA;
-
-  constructor(private profileService: UserService) { }
 
   ngOnInit(): void {
     // this.getTableData()

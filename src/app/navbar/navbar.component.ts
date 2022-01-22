@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Profile } from '../models/profile';
 import { UserService } from '../services/user/user.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-navbar',
@@ -9,34 +11,36 @@ import { UserService } from '../services/user/user.service';
 export class NavbarComponent implements OnInit {
     username: string = "";
     lang: string = "";
-
+    sortedProfiles: Profile[] = []
+  
   constructor(private profileService: UserService) { }
 
   ngOnInit(): void {
+    
   }
 
- 
   addUser(){
     const payload = this.username;
     this.profileService.addProfile(payload).subscribe(
       error => {
-        console.log(error)
+        console.log(error);
       },
       success => {
         console.log(success)
       }
     )
-    window.location.reload();
   }
 
-  sortByLanguage(){
+ sortByLanguage(){
     const language = this.lang
     this.profileService.getAllUserProfileByLanguage(language.toLowerCase()).subscribe(
-      error => {
-        console.log(error)
+      (response: Profile[]) => {
+        this.sortedProfiles = response
+        this.profileService.setSortedProfilesByLanguage(response)
+        console.log(response)
       },
-      success => {
-        console.log(success)
+      (error: HttpErrorResponse) => {
+        alert(error.message);
       }
     )
   }
